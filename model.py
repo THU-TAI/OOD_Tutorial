@@ -17,7 +17,7 @@ class Identity(nn.Module):
 class Featurizer(nn.Module):
     def __init__(self):
         super(Featurizer, self).__init__()
-        self.network = torchvision.models.resnet18(pretrained=True)
+        self.network = torchvision.models.resnet18(pretrained=False)
         self.output_dim = self.network.fc.in_features
         del self.network.fc
         self.network.fc = Identity()
